@@ -1,6 +1,6 @@
-﻿/**
+/**
  * Dr. Manisha Patel Clinic - Main JavaScript Logic
- * Specialist in Hair & Skin Treatments | BHMS (Drt)
+ * Advance Homeopathic Clinic | Multi-Page Architecture
  * Contact: +91 8619106758 | Debari, Udaipur
  */
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const treatment = treatmentType?.value || 'Consultation';
     const date = appointmentDate?.value || 'Next Available';
     const time = preferredTime?.value || 'Morning / Evening';
-    const notes = patientNotes?.value.trim() || 'Consultation regarding hair / skin';
+    const notes = patientNotes?.value.trim() || 'Consultation inquiry';
     const tokenId = token || 'NEW-REQ-' + Math.floor(1000 + Math.random() * 9000);
 
     const message = 
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `⏰ *Preferred Time:* ${time}\n` +
       `📝 *Symptoms / Concern:* ${notes}\n` +
       `───────────────────────\n` +
-      `📍 *Clinic Address:* Jain Diwaker Gali, near Balaji Polytechnic College, Debari, Udaipur, Rajasthan`;
+      `📍 *Advance Homeopathic Clinic:* Jain Diwaker Gali, Near Balaji Polytechnic College, Debari, Udaipur, Rajasthan`;
 
     return encodeURIComponent(message);
   }
@@ -103,12 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const randomToken = 'MP-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
       
-      // Update Modal Elements
-      document.getElementById('modalToken').textContent = '#' + randomToken;
-      document.getElementById('modalPatientName').textContent = patientName.value.trim();
-      document.getElementById('modalPhone').textContent = patientPhone.value.trim();
-      document.getElementById('modalTreatment').textContent = treatmentType.options[treatmentType.selectedIndex].text;
-      document.getElementById('modalDateTime').textContent = `${appointmentDate.value} (${preferredTime.value})`;
+      // Update Modal Elements if present
+      const modalToken = document.getElementById('modalToken');
+      const modalPatientName = document.getElementById('modalPatientName');
+      const modalPhone = document.getElementById('modalPhone');
+      const modalTreatment = document.getElementById('modalTreatment');
+      const modalDateTime = document.getElementById('modalDateTime');
+
+      if (modalToken) modalToken.textContent = '#' + randomToken;
+      if (modalPatientName) modalPatientName.textContent = patientName.value.trim();
+      if (modalPhone) modalPhone.textContent = patientPhone.value.trim();
+      if (modalTreatment) modalTreatment.textContent = treatmentType.options[treatmentType.selectedIndex].text;
+      if (modalDateTime) modalDateTime.textContent = `${appointmentDate.value} (${preferredTime.value})`;
 
       // Prepare WhatsApp button link inside modal
       const waUrl = `https://wa.me/918619106758?text=${buildWhatsAppMessage(randomToken)}`;
@@ -122,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = 'hidden';
       }
 
-      // Store in localStorage for reference
+      // Store in localStorage
       try {
         const appointmentData = {
           token: randomToken,
@@ -170,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
   if (modalCloseSecondary) modalCloseSecondary.addEventListener('click', closeModal);
 
-  // Close modal when clicking outside card
   if (bookingModal) {
     bookingModal.addEventListener('click', (e) => {
       if (e.target === bookingModal) {
@@ -178,22 +183,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // Quick Anchor Scroll highlight
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let scrollY = window.pageYOffset;
-    sections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-      const activeLink = document.querySelector(`.nav-menu a[href*=${sectionId}]`);
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        activeLink?.classList.add('active');
-      } else {
-        activeLink?.classList.remove('active');
-      }
-    });
-  });
 });

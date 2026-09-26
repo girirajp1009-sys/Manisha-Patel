@@ -1,48 +1,37 @@
 ﻿# Dr. Manisha Patel Clinic - Official Website
 **BHMS (Drt) | Advance Homeopathic Clinic, Debari, Udaipur, Rajasthan**
 
-A modern, responsive medical clinic website featuring a comprehensive disease treatment catalog with indicative medical signs/icons, authentic photographic patient results (Before & After case studies), genuine patient reviews, and interactive appointment booking with WhatsApp notification.
+A modern, responsive, **multi-page medical clinic website** with dedicated pages for About Doctor, Specialized Diseases & Treatments, Real Patient Results & Reviews, Clinic Location & Timings, and Online Appointment Booking with instant WhatsApp notification.
 
 ---
 
-## 🌟 Doctor & Clinic Details
+## 🌟 Clinic Information
 
 - **Doctor Name:** Dr. Manisha Patel
 - **Qualifications:** BHMS (Drt)
 - **Clinic:** Advance Homeopathic Clinic
 - **Helpline / WhatsApp:** [+91 8619106758](tel:8619106758)
 - **Clinic Address:** Jain Diwaker Gali, near Balaji Polytechnic College, Debari, Udaipur, Rajasthan - 313024
-- **Consultation Hours:**
+- **Visiting Timings:**
   - **Monday to Saturday:** 10:00 AM – 01:00 PM & 04:30 PM – 08:00 PM
   - **Sunday:** By Prior Appointment
 
 ---
 
-## 🩺 Specialized Disease Catalog
+## 📄 Multi-Page Structure
 
-1. **Excessive Medication Side Effects (दवाइयों के दुष्प्रभाव):**
-   - Kidney Impact, Liver Problems, Gastric/Digestive Issues & Acidity, Antibiotic Resistance, Digestive Imbalance, General Weakness.
-2. **Bone, Joint & Nerve Pain (हड्डी, जोड़ व नसों का दर्द):**
-   - Knee Pain, Sciatica (Nerve Pain), Back Pain / Low Back Ache, Cervical Spondylitis (Neck/Shoulder), Joint Stiffness.
-3. **Women's Health & Gynecological Issues (महिला स्वास्थ्य व स्त्री रोग):**
-   - Irregular Periods, Painful Periods (Dysmenorrhea), Heavy Bleeding, White Discharge (Leucorrhea), PCOD / PCOS, Pelvic Pain, Menopause Problems, Hormonal Imbalance, Pregnancy Care & Post-Delivery Weakness.
-4. **Common Pediatric / Children's Diseases (बच्चों के रोग):**
-   - Chickenpox, Measles, Mumps, Colic / Stomach Pain in children, Bedwetting, Worms in the Stomach.
-5. **Hair Care & Hair Problems (बालों की समस्याएं):**
-   - Hair Fall, Dandruff & Itchy Scalp, Alopecia / Baldness.
-6. **Other Health Problems:**
-   - Urinary Tract Infection (UTI), Recurrent Mouth Ulcers.
-
----
-
-## 📸 Real Patient Results & Reviews
-
-- **Case 1:** Alopecia Areata (Scalp Bald Patch Re-growth) [Before, During, After]
-- **Case 2:** Forehead & Nose Melasma / Deep Pigmentation [Before & After]
-- **Case 3:** Extensive Chest & Body Allergic Eczema [Before & After]
-- **Case 4:** Chronic Foot / Ankle Eczema Plaque [Before, During, After]
-- **Case 5:** Facial Cheek Melasma & Blemish Clearance [Before & After]
-- **Review:** Verified WhatsApp patient feedback confirming complete cure of severe scalp itching & dandruff with doctor's prescribed shampoo.
+1. **`index.html` (Home Page)**:
+   - Hero banner with doctor portrait, quick practice highlights, department teasers, patient case preview, and quick consultation booking.
+2. **`about.html` (About Doctor Page)**:
+   - Complete biography of Dr. Manisha Patel [BHMS (Drt)], medical philosophy, homeopathic principles, Advance Clinic vision, and credentials badge card.
+3. **`treatments.html` (Diseases & Treatments Page)**:
+   - Full dedicated catalog across all 6 medical categories (Medication side effects, Joint & nerve pain, Women's health/Gynecology, Pediatric illnesses, Hair care/Alopecia, UTI & mouth ulcers) with individual signs and icons.
+4. **`results.html` (Patient Results & Reviews Page)**:
+   - Dedicated showcase gallery of authentic Before/After case studies (Alopecia Areata, Melasma, Eczema cases) and verified WhatsApp patient review.
+5. **`contact.html` (Clinic Location & Contact Page)**:
+   - Complete clinic address in Debari, Udaipur, visiting hours, direct telephone helpline, and instant WhatsApp chat link.
+6. **`appointment.html` (Book Appointment Page)**:
+   - Interactive appointment registration form with past-date prevention, modal confirmation ticket, and direct WhatsApp booking message generator.
 
 ---
 
@@ -50,25 +39,31 @@ A modern, responsive medical clinic website featuring a comprehensive disease tr
 
 ```
 dr-manisha-patel-clinic/
-├── index.html                   # Master clinic landing page
+├── index.html                   # Home Landing Page
+├── about.html                   # About Doctor (Dedicated Page)
+├── treatments.html              # Diseases & Treatments (Dedicated Page)
+├── results.html                 # Patient Results & Reviews (Dedicated Page)
+├── contact.html                 # Clinic Location & Contact (Dedicated Page)
+├── appointment.html             # Online Appointment Booking (Dedicated Page)
+├── push_to_github.bat           # Helper batch script to push to GitHub
 ├── README.md                    # Project documentation
 └── assets/
     ├── css/
-    │   └── style.css            # Responsive clinical styling
+    │   └── style.css            # Stylesheet with subpage banner and responsive layout
     ├── js/
-    │   └── main.js              # Booking validation, WhatsApp integration, modal logic
+    │   └── main.js              # Booking validation, WhatsApp integration, mobile navigation
     └── images/
         ├── dr-manisha.jpg               # Doctor portrait
-        ├── case_alopecia_scalp.jpg      # Alopecia before/during/after
-        ├── case_melasma_face.jpg        # Facial melasma before/after
-        ├── case_chest_eczema.jpg        # Chest eczema before/after
-        ├── case_foot_eczema.jpg         # Foot eczema before/during/after
-        ├── case_cheek_pigmentation.jpg  # Cheek melasma before/after
-        └── review_whatsapp_hair.jpg     # WhatsApp patient review screenshot
+        ├── case_alopecia_scalp.jpg      # Case study: Alopecia
+        ├── case_melasma_face.jpg        # Case study: Melasma
+        ├── case_chest_eczema.jpg        # Case study: Chest eczema
+        ├── case_foot_eczema.jpg         # Case study: Foot eczema
+        ├── case_cheek_pigmentation.jpg  # Case study: Cheek pigmentation
+        └── review_whatsapp_hair.jpg     # Verified WhatsApp review
 ```
 
 ---
 
-## 🚀 How to Open and Use
+## 🚀 How to Run and View Locally
 
-Simply double-click `index.html` to view the website in any web browser.
+Double-click any HTML file (e.g. `index.html`) in Windows Explorer to open it in your browser. All navigation links between pages work seamlessly offline and online!
