@@ -1603,3 +1603,423 @@ textarea.form-control {
     height: 380px;
   }
 }
+
+
+/* ==========================================================================
+   STRICT SVG ICON SIZING (Guarantees zero overflow or full-screen expansion)
+   ========================================================================== */
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+  flex-shrink: 0;
+}
+
+/* Top bar icons */
+.top-bar-item svg {
+  width: 15px !important;
+  height: 15px !important;
+  max-width: 15px !important;
+  max-height: 15px !important;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Logo icon */
+.brand-icon svg {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  stroke: #FFFFFF;
+  fill: none;
+  stroke-width: 2.2;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+/* Hero highlights */
+.hero-highlights-list, .hero-trust-bullets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.hero-highlight-item, .hero-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.hero-highlight-item svg, .hero-bullet-item svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.2;
+  flex-shrink: 0;
+}
+
+/* Stat badges */
+.stat-icon, .hero-stat-badge .stat-icon, .trust-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.stat-icon svg, .hero-stat-badge .stat-icon svg, .trust-item-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Consultation Process */
+.process-icon-box, .process-step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+
+.process-icon-box svg {
+  width: 28px !important;
+  height: 28px !important;
+  max-width: 28px !important;
+  max-height: 28px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Department Teasers */
+.dept-card-icon, .department-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+
+.dept-card-icon svg, .department-card-icon svg {
+  width: 26px !important;
+  height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.dept-card-link svg, .dept-link svg {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Disease Cards */
+.disease-card-icon, .disease-line-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.disease-card-icon svg, .disease-line-icon svg {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.disease-item-sign, .disease-bullet-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.disease-item-sign svg, .disease-bullet-icon svg {
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  max-width: 17px !important;
+  max-height: 17px !important;
+  stroke: var(--accent-dark);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Qualifications */
+.qual-item, .doctor-qual-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 0.92rem;
+}
+
+.qual-item svg, .doctor-qual-row svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.specialty-check-grid svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+/* Results Stage Badges */
+.result-stage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-top: 0.85rem;
+}
+
+.result-stage-badge svg {
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px !important;
+  max-height: 14px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.results-disclaimer-box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.results-disclaimer-box svg {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* FAQ Icons */
+.faq-question .faq-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.faq-question .faq-icon svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  stroke: var(--muted);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-question .faq-icon svg {
+  transform: rotate(180deg);
+  stroke: var(--primary);
+}
+
+/* Location Icons */
+.loc-icon-bubble, .location-item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.loc-icon-bubble svg, .location-item-icon svg {
+  width: 22px !important;
+  height: 22px !important;
+  max-width: 22px !important;
+  max-height: 22px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Footer Disclaimer */
+.footer-disclaimer-wrap {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+}
+
+.footer-disclaimer svg {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+/* Floating & Sticky Bar */
+.float-btn svg {
+  width: 26px !important;
+  height: 26px !important;
+  max-width: 26px !important;
+  max-height: 26px !important;
+  flex-shrink: 0;
+}
+
+.mobile-sticky-bar .sticky-bar-item svg {
+  width: 20px !important;
+  height: 20px !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  flex-shrink: 0;
+}
+
+.booking-perk-icon svg {
+  width: 16px !important;
+  height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.modal-icon-circle svg {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+  flex-shrink: 0;
+}
+
+.rating-strip-box svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  fill: var(--accent);
+  flex-shrink: 0;
+}

@@ -9,7 +9,7 @@ A modern, responsive, high-trust **multi-page medical clinic website** built wit
 
 - **Doctor Name:** Dr. Manisha Patel
 - **Qualifications:** BHMS (Bachelor of Homeopathic Medicine and Surgery), Registered Homeopathic Practitioner
-- **Experience:** 8+ Years Dedicated Clinical Practice
+- **Experience:** 4+ Years Dedicated Clinical Practice
 - **Clinic:** Advance Homeopathic Clinic
 - **Helpline / WhatsApp:** [+91 8619106758](tel:8619106758)
 - **Clinic Address:** Jain Diwaker Gali, near Balaji Polytechnic College, Debari, Udaipur, Rajasthan - 313024
@@ -47,7 +47,7 @@ A modern, responsive, high-trust **multi-page medical clinic website** built wit
 ## 📄 Dedicated Multi-Page Structure
 
 1. **`index.html` (Home Page)**:
-   - Hero banner with doctor portrait, practice highlights, trust stats strip (8+ yrs experience, 2500+ patients), 3-step consultation process, 6 department cards, clinical observations preview with legal disclaimer, FAQ accordion, embedded Google map, and footer.
+   - Hero banner with doctor portrait, practice highlights, trust stats strip (4+ yrs experience, 2500+ patients), 3-step consultation process, 6 department cards, clinical observations preview with legal disclaimer, FAQ accordion, embedded Google map, and footer.
 2. **`about.html` (About Doctor Page)**:
    - Comprehensive profile of Dr. Manisha Patel (BHMS), credentials card, clinical philosophy, core homeopathic principles, unhurried patient listening, and visiting summary.
 3. **`treatments.html` (Diseases & Specialized Care Page)**:
