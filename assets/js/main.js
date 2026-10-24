@@ -5,7 +5,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Menu Navigation Toggle
+  // 1. Mobile Menu Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
 
@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Close menu when clicking nav links
     const navLinks = navMenu.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -25,14 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Set Minimum Date on Date Picker to Today
+  // 2. FAQ Accordion Toggle
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (questionBtn && answer) {
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close others
+        faqItems.forEach(other => {
+          other.classList.remove('active');
+          const otherAns = other.querySelector('.faq-answer');
+          if (otherAns) otherAns.style.maxHeight = null;
+        });
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    }
+  });
+
+  // 3. Set Minimum Date on Date Picker to Today
   const appointmentDate = document.getElementById('appointmentDate');
   if (appointmentDate) {
     const today = new Date().toISOString().split('T')[0];
     appointmentDate.setAttribute('min', today);
   }
 
-  // 3. Appointment Form Handling
+  // 4. Appointment Form Handling
   const appointmentForm = document.getElementById('appointmentForm');
   const whatsappBookingBtn = document.getElementById('whatsappBookingBtn');
   const bookingModal = document.getElementById('bookingModal');
@@ -40,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalCloseSecondary = document.getElementById('modalCloseSecondary');
   const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
 
-  // Form Fields
   const patientName = document.getElementById('patientName');
   const patientPhone = document.getElementById('patientPhone');
   const patientEmail = document.getElementById('patientEmail');
@@ -48,36 +68,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const preferredTime = document.getElementById('preferredTime');
   const patientNotes = document.getElementById('patientNotes');
 
-  // Helper: Format WhatsApp Message
   function buildWhatsAppMessage(token = '') {
     const name = patientName?.value.trim() || 'Patient';
     const phone = patientPhone?.value.trim() || 'Not provided';
     const treatment = treatmentType?.value || 'Consultation';
     const date = appointmentDate?.value || 'Next Available';
     const time = preferredTime?.value || 'Morning / Evening';
-    const notes = patientNotes?.value.trim() || 'Consultation inquiry';
-    const tokenId = token || 'NEW-REQ-' + Math.floor(1000 + Math.random() * 9000);
+    const notes = patientNotes?.value.trim() || 'Consultation request';
+    const tokenId = token || 'REQ-' + Math.floor(1000 + Math.random() * 9000);
 
     const message = 
       `*New Appointment Request - Dr. Manisha Patel Clinic*\n` +
       `───────────────────────\n` +
-      `🔖 *Booking Token:* #${tokenId}\n` +
-      `👤 *Patient Name:* ${name}\n` +
-      `📞 *Phone Number:* ${phone}\n` +
-      `🩺 *Consultation For:* ${treatment}\n` +
-      `📅 *Preferred Date:* ${date}\n` +
-      `⏰ *Preferred Time:* ${time}\n` +
-      `📝 *Symptoms / Concern:* ${notes}\n` +
+      `🔖 *Token:* #${tokenId}\n` +
+      `👤 *Patient:* ${name}\n` +
+      `📞 *Phone:* ${phone}\n` +
+      `🩺 *Concern:* ${treatment}\n` +
+      `📅 *Date:* ${date}\n` +
+      `⏰ *Slot:* ${time}\n` +
+      `📝 *Notes:* ${notes}\n` +
       `───────────────────────\n` +
-      `📍 *Advance Homeopathic Clinic:* Jain Diwaker Gali, Near Balaji Polytechnic College, Debari, Udaipur, Rajasthan`;
+      `📍 *Advance Homeopathic Clinic:* Jain Diwaker Gali, Near Balaji Polytechnic, Debari, Udaipur`;
 
     return encodeURIComponent(message);
   }
 
-  // Helper: Validate Form
   function validateForm() {
     if (!patientName.value.trim()) {
-      alert('Please enter the patient full name.');
+      alert('Please enter patient full name.');
       patientName.focus();
       return false;
     }
@@ -95,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  // Handle Standard Form Submit
   if (appointmentForm) {
     appointmentForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -103,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const randomToken = 'MP-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
       
-      // Update Modal Elements if present
       const modalToken = document.getElementById('modalToken');
       const modalPatientName = document.getElementById('modalPatientName');
       const modalPhone = document.getElementById('modalPhone');
@@ -116,42 +132,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if (modalTreatment) modalTreatment.textContent = treatmentType.options[treatmentType.selectedIndex].text;
       if (modalDateTime) modalDateTime.textContent = `${appointmentDate.value} (${preferredTime.value})`;
 
-      // Prepare WhatsApp button link inside modal
       const waUrl = `https://wa.me/918619106758?text=${buildWhatsAppMessage(randomToken)}`;
       if (modalWhatsAppBtn) {
         modalWhatsAppBtn.href = waUrl;
       }
 
-      // Open Modal
       if (bookingModal) {
         bookingModal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
-
-      // Store in localStorage
-      try {
-        const appointmentData = {
-          token: randomToken,
-          name: patientName.value.trim(),
-          phone: patientPhone.value.trim(),
-          service: treatmentType.value,
-          date: appointmentDate.value,
-          time: preferredTime.value,
-          created: new Date().toISOString()
-        };
-        localStorage.setItem('lastClinicAppointment', JSON.stringify(appointmentData));
-      } catch (err) {
-        console.warn('LocalStorage error:', err);
-      }
     });
   }
 
-  // Handle Direct WhatsApp Booking Button
   if (whatsappBookingBtn) {
     whatsappBookingBtn.addEventListener('click', (e) => {
       e.preventDefault();
       if (!patientName.value.trim() || !patientPhone.value.trim()) {
-        const proceed = confirm('Would you like to send quick appointment request with current details to WhatsApp (+91 8619106758)?');
+        const proceed = confirm('Send appointment inquiry with entered details to Dr. Manisha Patel on WhatsApp (+91 8619106758)?');
         if (!proceed) {
           patientName.focus();
           return;
@@ -162,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close Modal Functionality
   function closeModal() {
     if (bookingModal) {
       bookingModal.classList.remove('active');
@@ -175,12 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
   if (modalCloseSecondary) modalCloseSecondary.addEventListener('click', closeModal);
-
   if (bookingModal) {
     bookingModal.addEventListener('click', (e) => {
-      if (e.target === bookingModal) {
-        closeModal();
-      }
+      if (e.target === bookingModal) closeModal();
     });
   }
 });
